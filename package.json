@@ -3,6 +3,7 @@
   "scripts": {
     "test": "LOG_LEVEL=error TZ=UTC jest --maxConcurrency=1",
     "build": "tsc",
+    "infra:circuit": "cd ./deploy && docker compose -p dev-databarn -f docker-compose.circuit.yml up -d",
     "infra:start": "cd ./deploy && docker compose -p dev-databarn -f docker-compose.dev.yml up -d",
     "infra:logs": "cd ./deploy && docker compose -p dev-databarn -f docker-compose.dev.yml logs -f",
     "infra:stop": "cd ./deploy && docker compose -p dev-databarn -f docker-compose.dev.yml down",
