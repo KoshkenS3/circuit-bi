@@ -107,6 +107,8 @@ export function beefyVaultsFromGitHistory$(chain: Chain): Rx.Observable<BeefyVau
   const v2$ = Rx.from(fileContentStreamV2).pipe(
     // parse the file content
     Rx.map((fileVersion) => {
+      console.log("fileVersion.fileContent", fileVersion.fileContent);
+
       const vaults = JSON.parse(fileVersion.fileContent) as RawBeefyVault[];
       return { fileVersion, vaults, error: false };
     }),
