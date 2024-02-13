@@ -81,7 +81,13 @@ async function getDbClient({ appName = "beefy", freshClient = false }: { appName
     const pgUrl = TIMESCALEDB_URL;
     const config = pgcs.parse(pgUrl) as any as PgClientConfig;
     logger.trace({ msg: "Instantiating new shared pg client", data: { appNameToUse } });
-    sharedClient = new PgClient({ ...config, application_name: appNameToUse, ssl: TIMESCALEDB_CA ? { ca: TIMESCALEDB_CA } : undefined });
+    sharedClient = new PgClient({
+      ...config,
+      application_name: appNameToUse,
+      ssl: {
+        rejectUnauthorized: true,
+      },
+    });
     sharedClient.on("error", (err: any) => {
       logger.error({ msg: "Postgres client error", data: { err, appNameToUse } });
       logger.error(err);
