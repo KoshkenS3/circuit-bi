@@ -5,7 +5,7 @@ import prettier from "prettier";
 import * as Rx from "rxjs";
 import { Chain } from "../../../types/chain";
 import { getChainWNativeTokenAddress } from "../../../utils/addressbook";
-import { GITHUB_RO_AUTH_TOKEN, GIT_WORK_DIRECTORY } from "../../../utils/config";
+import { GIT_WORK_DIRECTORY } from "../../../utils/config";
 import { normalizeAddressOrThrow } from "../../../utils/ethers";
 import { rootLogger } from "../../../utils/logger";
 import { GitFileVersion, gitStreamFileVersions } from "../../common/connector/git-file-history";
@@ -84,9 +84,7 @@ export function beefyVaultsFromGitHistory$(chain: Chain): Rx.Observable<BeefyVau
   logger.debug({ msg: "Fetching vault list from beefy-v2 repo git history", data: { chain } });
 
   const fileContentStreamV2 = gitStreamFileVersions({
-    remote: GITHUB_RO_AUTH_TOKEN
-      ? `https://${GITHUB_RO_AUTH_TOKEN}@github.com/beefyfinance/beefy-v2.git`
-      : "https://github.com/Circuit-Finance-Org/circuit-frontend-public.git",
+    remote: "https://github.com/Circuit-Finance-Org/circuit-frontend-public.git",
     branch: "main",
     filePath: `src/config/vault/${chain}.json`,
     workdir: path.join(GIT_WORK_DIRECTORY, "beefy-v2"),
@@ -97,9 +95,7 @@ export function beefyVaultsFromGitHistory$(chain: Chain): Rx.Observable<BeefyVau
 
   const v1Chain = chain === "avax" ? "avalanche" : chain;
   const fileContentStreamV1 = gitStreamFileVersions({
-    remote: GITHUB_RO_AUTH_TOKEN
-      ? `https://${GITHUB_RO_AUTH_TOKEN}@github.com/beefyfinance/beefy-app.git`
-      : "https://github.com/beefyfinance/beefy-app.git",
+    remote: "https://github.com/Circuit-Finance-Org/circuit-frontend-public.git",
     branch: "prod",
     filePath: `src/features/configure/vault/${v1Chain}_pools.js`,
     workdir: path.join(GIT_WORK_DIRECTORY, "beefy-v1"),
