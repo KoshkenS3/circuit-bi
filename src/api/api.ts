@@ -6,7 +6,7 @@ import FastifyPostgres from "@fastify/postgres";
 import FastifyRateLimit, { RateLimitPluginOptions } from "@fastify/rate-limit";
 import FastifyUnderPressure from "@fastify/under-pressure";
 import fastify, { FastifyInstance } from "fastify";
-import { API_DISABLE_HTTPS, API_FRONTEND_URL, API_URL, APP_LOCAL_BUILDS_URL, APP_PR_BUILDS_URL, TIMESCALEDB_URL } from "../utils/config";
+import { API_DISABLE_HTTPS, TIMESCALEDB_URL } from "../utils/config";
 import { rootLogger } from "../utils/logger";
 import privateRoutes from "./route/private";
 import publicRoutes from "./route/public";
