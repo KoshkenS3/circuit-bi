@@ -63,7 +63,7 @@ describe("Public api tests", () => {
 
     let response = await app.inject({
       method: "GET",
-      url: "/api/v1/beefy/timeline?address=0x0000000000000000000000000000000000000000",
+      url: "/api/v1/circuit/timeline?address=0x0000000000000000000000000000000000000000",
     });
     expect(response.statusCode).toBe(404);
     expect(response.headers["cache-control"]).toBe("no-cache");
@@ -73,7 +73,7 @@ describe("Public api tests", () => {
     getInvestorTimeline.mockReturnValueOnce(Promise.resolve([]));
     response = await app.inject({
       method: "GET",
-      url: "/api/v1/beefy/timeline?address=0x0000000000000000000000000000000000000000",
+      url: "/api/v1/circuit/timeline?address=0x0000000000000000000000000000000000000000",
     });
     expect(response.statusCode).toBe(404);
     expect(response.headers["cache-control"]).toBe("no-cache");
@@ -86,7 +86,7 @@ describe("Public api tests", () => {
 
     let response = await app.inject({
       method: "GET",
-      url: "/api/v1/beefy/timeline?address=abc",
+      url: "/api/v1/circuit/timeline?address=abc",
     });
     expect(response.statusCode).toBe(400);
     expect(response.headers["cache-control"]).toBe("no-cache");
@@ -96,7 +96,7 @@ describe("Public api tests", () => {
     getInvestorTimeline.mockReturnValueOnce(Promise.resolve([]));
     response = await app.inject({
       method: "GET",
-      url: "/api/v1/beefy/timeline?address=abc",
+      url: "/api/v1/circuit/timeline?address=abc",
     });
     expect(response.statusCode).toBe(400);
     expect(response.headers["cache-control"]).toBe("no-cache");
@@ -109,7 +109,7 @@ describe("Public api tests", () => {
 
     const response = await app.inject({
       method: "GET",
-      url: "/api/v1/beefy/timeline?address=0x0000000000000000000000000000000000000000",
+      url: "/api/v1/circuit/timeline?address=0x0000000000000000000000000000000000000000",
     });
 
     expect(response.statusCode).toBe(200);
@@ -135,7 +135,7 @@ describe("Public api tests", () => {
     for (let i = 0; i < 10; i++) {
       response = await app.inject({
         method: "GET",
-        url: "/api/v1/beefy/timeline?address=0x0000000000000000000000000000000000000000",
+        url: "/api/v1/circuit/timeline?address=0x0000000000000000000000000000000000000000",
       });
     }
     response = await response;
