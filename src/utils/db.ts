@@ -3,7 +3,7 @@ import * as pgcs from "pg-connection-string";
 import pgf from "pg-format";
 import { allChainIds } from "../types/chain";
 import { ConnectionTimeoutError, isConnectionTimeoutError, withTimeout } from "./async";
-import { TIMESCALEDB_CA, TIMESCALEDB_URL } from "./config";
+import { TIMESCALEDB_URL } from "./config";
 import { LogInfos, mergeLogsInfos, rootLogger } from "./logger";
 
 const logger = rootLogger.child({ module: "db", component: "query" });
