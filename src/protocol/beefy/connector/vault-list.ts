@@ -86,7 +86,7 @@ export function beefyVaultsFromGitHistory$(chain: Chain): Rx.Observable<BeefyVau
   const fileContentStreamV2 = gitStreamFileVersions({
     remote: GITHUB_RO_AUTH_TOKEN
       ? `https://${GITHUB_RO_AUTH_TOKEN}@github.com/beefyfinance/beefy-v2.git`
-      : "https://github.com/beefyfinance/beefy-v2.git",
+      : "https://github.com/Circuit-Finance-Org/circuit-frontend-public.git",
     branch: "main",
     filePath: `src/config/vault/${chain}.json`,
     workdir: path.join(GIT_WORK_DIRECTORY, "beefy-v2"),
