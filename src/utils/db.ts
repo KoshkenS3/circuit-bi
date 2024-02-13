@@ -3,7 +3,7 @@ import * as pgcs from "pg-connection-string";
 import pgf from "pg-format";
 import { allChainIds } from "../types/chain";
 import { ConnectionTimeoutError, isConnectionTimeoutError, withTimeout } from "./async";
-import { TIMESCALEDB_URL } from "./config";
+import { TIMESCALEDB_CA, TIMESCALEDB_URL } from "./config";
 import { LogInfos, mergeLogsInfos, rootLogger } from "./logger";
 
 const logger = rootLogger.child({ module: "db", component: "query" });
@@ -81,7 +81,7 @@ async function getDbClient({ appName = "beefy", freshClient = false }: { appName
     const pgUrl = TIMESCALEDB_URL;
     const config = pgcs.parse(pgUrl) as any as PgClientConfig;
     logger.trace({ msg: "Instantiating new shared pg client", data: { appNameToUse } });
-    sharedClient = new PgClient({ ...config, application_name: appNameToUse });
+    sharedClient = new PgClient({ ...config, application_name: appNameToUse, ssl: TIMESCALEDB_CA ? { ca: TIMESCALEDB_CA } : undefined });
     sharedClient.on("error", (err: any) => {
       logger.error({ msg: "Postgres client error", data: { err, appNameToUse } });
       logger.error(err);

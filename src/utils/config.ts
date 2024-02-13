@@ -28,6 +28,7 @@ export const APP_PR_BUILDS_URL = process.env.APP_PR_BUILDS_URL ? new RegExp(proc
 export const APP_LOCAL_BUILDS_URL = process.env.APP_LOCAL_BUILDS_URL ? new RegExp(process.env.APP_LOCAL_BUILDS_URL) : "http://localhost:3001";
 
 export const TIMESCALEDB_URL = process.env.TIMESCALEDB_URL || "psql://beefy:beefy@localhost:5432/beefy";
+export const TIMESCALEDB_CA = process.env.TIMESCALEDB_CA;
 
 // sometimes the programmer error dump is too large and interferes with the log buffers
 // this messes up the log output. set to true to disable the dump
