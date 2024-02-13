@@ -80,7 +80,7 @@ export async function buildPrivateApi(options: ServerOptions = optionsDefaults) 
     .register(FastifyDI.fastifyAwilixPlugin)
     .register(FastifyUnderPressure)
     // cors and just helmet just in case these are ever exposed
-    .register(FastifyCors, { origin: [API_URL, API_FRONTEND_URL, APP_PR_BUILDS_URL, APP_LOCAL_BUILDS_URL] })
+    .register(FastifyCors, { origin: "*" })
     .register(FastifyHelmet, { contentSecurityPolicy: API_DISABLE_HTTPS ? false : true })
     // generous rate limit for private endpoints
     .register(FastifyRateLimit, {

@@ -43,7 +43,7 @@ export default async function (instance: FastifyInstance) {
     .get("/openapi.json", { config: { rateLimit: false } }, (req, reply) => {
       reply.send(instance.swagger());
     })
-    .register(beefyRoutes, { prefix: "/beefy" })
+    .register(beefyRoutes, { prefix: "/circuit" })
     .register(pricesRoutes, { prefix: "/price" })
     .register(importStateRoutes, { prefix: "/import-state" });
 }
