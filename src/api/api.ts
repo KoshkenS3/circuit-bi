@@ -44,7 +44,7 @@ export async function buildPublicApi(options: ServerOptions = optionsDefaults) {
     .register(FastifyPostgres, { connectionString: TIMESCALEDB_URL, application_name: "api" })
     .register(FastifyDI.fastifyAwilixPlugin)
     .register(FastifyUnderPressure)
-    .register(FastifyCors, { origin: [API_URL, API_FRONTEND_URL, APP_PR_BUILDS_URL, APP_LOCAL_BUILDS_URL] })
+    .register(FastifyCors, { origin: "*" })
     .register(FastifyHelmet, { contentSecurityPolicy: API_DISABLE_HTTPS ? false : true })
     .register(FastifyCaching, {
       privacy: FastifyCaching.privacy.PUBLIC,
