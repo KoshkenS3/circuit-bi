@@ -96,7 +96,7 @@ export function beefyVaultsFromGitHistory$(chain: Chain): Rx.Observable<BeefyVau
   const v1Chain = chain === "avax" ? "avalanche" : chain;
   const fileContentStreamV1 = gitStreamFileVersions({
     remote: "https://github.com/Circuit-Finance-Org/circuit-frontend-public.git",
-    branch: "prod",
+    branch: "main",
     filePath: `src/features/configure/vault/${v1Chain}_pools.js`,
     workdir: path.join(GIT_WORK_DIRECTORY, "circuit-v1"),
     order: "old-to-recent",
