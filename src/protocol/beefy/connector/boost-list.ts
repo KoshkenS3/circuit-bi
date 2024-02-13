@@ -54,12 +54,10 @@ export function beefyBoostsFromGitHistory$(chain: Chain, allChainVaults: BeefyVa
   logger.debug({ msg: "Fetching boost list from beefy-v2 repo git history", data: { chain } });
 
   const fileContentStreamV2 = gitStreamFileVersions({
-    remote: GITHUB_RO_AUTH_TOKEN
-      ? `https://${GITHUB_RO_AUTH_TOKEN}@github.com/beefyfinance/beefy-v2.git`
-      : "https://github.com/beefyfinance/beefy-v2.git",
+    remote: "https://github.com/Circuit-Finance-Org/circuit-frontend-public.git",
     branch: "main",
     filePath: `src/config/boost/${chain}.json`,
-    workdir: path.join(GIT_WORK_DIRECTORY, "beefy-v2"),
+    workdir: path.join(GIT_WORK_DIRECTORY, "circuit-v2"),
     order: "old-to-recent",
     throwOnError: false,
     onePerMonth: false,
