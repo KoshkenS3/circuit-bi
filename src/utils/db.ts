@@ -100,7 +100,13 @@ async function getDbClient({ appName = "beefy", freshClient = false }: { appName
     const pgUrl = TIMESCALEDB_URL;
     const config = pgcs.parse(pgUrl) as any as PgClientConfig;
     logger.trace({ msg: "Instantiating new unique pg client", data: { appNameToUse } });
-    return new PgClient({ ...config, application_name: appNameToUse });
+    return new PgClient({
+      ...config,
+      application_name: appNameToUse,
+      ssl: {
+        rejectUnauthorized: true,
+      },
+    });
   }
 
   return sharedClient;
