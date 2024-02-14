@@ -2,7 +2,7 @@ import { keyBy } from "lodash";
 import * as path from "path";
 import * as Rx from "rxjs";
 import { Chain } from "../../../types/chain";
-import { GITHUB_RO_AUTH_TOKEN, GIT_WORK_DIRECTORY } from "../../../utils/config";
+import { GIT_WORK_DIRECTORY } from "../../../utils/config";
 import { normalizeAddressOrThrow } from "../../../utils/ethers";
 import { rootLogger } from "../../../utils/logger";
 import { GitFileVersion, gitStreamFileVersions } from "../../common/connector/git-file-history";
