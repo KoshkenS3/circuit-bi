@@ -27,7 +27,7 @@ export const API_FRONTEND_URL = process.env.APP_FRONTEND_URL ? new RegExp(proces
 export const APP_PR_BUILDS_URL = process.env.APP_PR_BUILDS_URL ? new RegExp(process.env.APP_PR_BUILDS_URL) : "http://localhost:3000";
 export const APP_LOCAL_BUILDS_URL = process.env.APP_LOCAL_BUILDS_URL ? new RegExp(process.env.APP_LOCAL_BUILDS_URL) : "http://localhost:3001";
 
-export const TIMESCALEDB_URL = process.env.TIMESCALEDB_URL || "psql://beefy:beefy@localhost:5432/beefy";
+export const TIMESCALEDB_URL = process.env.TIMESCALEDB_URL || "psql://circuit:circuit@localhost:5432/circuit";
 
 // sometimes the programmer error dump is too large and interferes with the log buffers
 // this messes up the log output. set to true to disable the dump
@@ -35,7 +35,8 @@ export const DISABLE_PROGRAMMER_ERROR_DUMP = process.env.DISABLE_PROGRAMMER_ERRO
 
 export const REDIS_URL = process.env.REDIS_URL || "redis://localhost:6379";
 
-export const BEEFY_DATA_URL = process.env.BEEFY_DATA_URL || "https://data.beefy.finance";
+export const BEEFY_DATA_URL = process.env.BEEFY_DATA_URL || "https://data.circuit.farm";
+
 export const BEEFY_DATA_KEY = process.env.BEEFY_DATA_KEY || null;
 
 export const RPC_API_KEY_AURORA = process.env.RPC_API_KEY_AURORA || null;
@@ -104,7 +105,7 @@ export const MULTICALL3_ADDRESS_MAP: { [chain in Chain]: { multicallAddress: str
   heco: { multicallAddress: "0xcA11bde05977b3631167028862bE2a173976CA11", createdAtBlock: 14413501 },
   kava: { multicallAddress: "0xcA11bde05977b3631167028862bE2a173976CA11", createdAtBlock: 3661165 },
   linea: { multicallAddress: "0xcA11bde05977b3631167028862bE2a173976CA11", createdAtBlock: 42 },
-  mantle: { multicallAddress: "0xcA11bde05977b3631167028862bE2a173976CA11", createdAtBlock: 304717 },
+  mantle: { multicallAddress: "0xdd1Cd46EA5B7391553ba59a3cDE98AC6af33eD30", createdAtBlock: 43061 },
   metis: { multicallAddress: "0xcA11bde05977b3631167028862bE2a173976CA11", createdAtBlock: 2338552 },
   moonbeam: { multicallAddress: "0xcA11bde05977b3631167028862bE2a173976CA11", createdAtBlock: 609002 },
   moonriver: { multicallAddress: "0xcA11bde05977b3631167028862bE2a173976CA11", createdAtBlock: 1597904 },
