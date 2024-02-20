@@ -328,7 +328,7 @@ export function updateImportState$<
           },
           {
             connectTimeoutMs: 5000,
-            queryTimeoutMs: 2000 /* this should be a very quick operation */,
+            queryTimeoutMs: 10000 /* this should be a very quick operation */,
             appName: "beefy:import_state:update_transaction",
             logInfos,
           },
